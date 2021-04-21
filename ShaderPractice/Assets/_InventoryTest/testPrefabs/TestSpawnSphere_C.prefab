@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2138593391007302934}
   - component: {fileID: 2138593391007302935}
   - component: {fileID: 143233204}
-  - component: {fileID: -812522782496558482}
   m_Layer: 0
   m_Name: TestSpawnSphere_C
   m_TagString: Untagged
@@ -107,15 +106,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc58404e754647ed9cfe0d90e041dfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-812522782496558482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2138593391007302928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dc58404e754647ed9cfe0d90e041dfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  name: Cyan Sphere

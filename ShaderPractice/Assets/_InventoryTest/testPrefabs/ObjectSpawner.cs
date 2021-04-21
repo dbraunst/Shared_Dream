@@ -18,12 +18,15 @@ public class ObjectSpawner : MonoBehaviour
 
     private GameObject[] prefabsToSpawn;
 
+    public InventoryManager inventoryManager;
+
     // Start is called before the first frame update
     void Start()
     {
         // Queries the scene to grab all objects tagged "ObjectSpawn"
         spawnPoints = GameObject.FindGameObjectsWithTag("ObjectSpawn");
         numObjectsToSpawn = spawnPoints.Length;
+        inventoryManager = GameObject.FindObjectOfType<InventoryManager>();
     }
  
     // Update is called once per frame
@@ -35,6 +38,11 @@ public class ObjectSpawner : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.S)){
             SpawnObjects();
+        }
+
+        if (Input.GetKeyDown(KeyCode.U)){
+            inventoryManager.AddSpawnedObjectList(spawnedObjects);
+            inventoryManager.AssignObjectsToPlayers();
         }
     }
 

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Timeline_1_interactible
   - Timeline_1_window
+  - ObjectSpawn
+  - InventoryMgr
+  - SpawnMgr
   layers:
   - Default
   - TransparentFX

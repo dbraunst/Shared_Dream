@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 537725670333668012}
   - component: {fileID: 537725670333668015}
   - component: {fileID: 202733549}
-  - component: {fileID: 2308070663467632604}
   m_Layer: 0
   m_Name: TestSpawnSphere_M
   m_TagString: Untagged
@@ -107,15 +106,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc58404e754647ed9cfe0d90e041dfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2308070663467632604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 537725670333668014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dc58404e754647ed9cfe0d90e041dfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  name: Magenta Sphere
