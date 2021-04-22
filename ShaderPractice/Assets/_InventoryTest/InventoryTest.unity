@@ -1038,6 +1038,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestSpawnSphere_C
       objectReference: {fileID: 0}
+    - target: {fileID: 2138593391007302928, guid: a10ff8db2cdc44371b0be202ae0b8db0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2138593391007302932, guid: a10ff8db2cdc44371b0be202ae0b8db0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1162,6 +1167,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestSpawnCube_Y
       objectReference: {fileID: 0}
+    - target: {fileID: 374772351371846316, guid: de79bc75253e541a0adcb09ebbf76772,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de79bc75253e541a0adcb09ebbf76772, type: 3}
 --- !u!1001 &489856870059061463
@@ -1231,6 +1241,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestSpawnSphere_Y
       objectReference: {fileID: 0}
+    - target: {fileID: 489856868942125983, guid: eae759969fa274e88ba28d0b20036d29,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eae759969fa274e88ba28d0b20036d29, type: 3}
 --- !u!1001 &508168945531636736
@@ -1244,6 +1259,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TestSpawnCapsule_M
+      objectReference: {fileID: 0}
+    - target: {fileID: 508168945800413347, guid: aa04fe9335ce041f9a733c290cd83aa0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 508168945800413351, guid: aa04fe9335ce041f9a733c290cd83aa0,
         type: 3}
@@ -1313,6 +1333,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TestSpawnSphere_M
+      objectReference: {fileID: 0}
+    - target: {fileID: 537725670333668014, guid: 8baff2168119145168e4c115dc378aac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 537725670333668018, guid: 8baff2168119145168e4c115dc378aac,
         type: 3}
@@ -1438,6 +1463,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestSpawnCube_C
       objectReference: {fileID: 0}
+    - target: {fileID: 1620446515820880212, guid: b498bc66c799e40dcbb553523c77d90e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b498bc66c799e40dcbb553523c77d90e, type: 3}
 --- !u!1001 &2106298713515116862
@@ -1506,6 +1536,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TestSpawnCapsule_C
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106298713488199008, guid: f971d2ecf6e104ff092fc0e9c60ca8ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f971d2ecf6e104ff092fc0e9c60ca8ab, type: 3}
@@ -1645,6 +1680,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestSpawnCube_M
       objectReference: {fileID: 0}
+    - target: {fileID: 6322292505884452477, guid: 4568d8b5ff3df45a28ea8c6fbc9af2c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4568d8b5ff3df45a28ea8c6fbc9af2c4, type: 3}
 --- !u!1001 &9184900635321108863
@@ -1713,6 +1753,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TestSpawnCapsule_Y
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184900634757147808, guid: a9f4580f6bc1f404980a5653536d957c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9f4580f6bc1f404980a5653536d957c, type: 3}

@@ -16,8 +16,6 @@ public class PlayerInventoryDisplay : MonoBehaviour
 
     public GameObject inventoryItemText_Prefab;
 
-
-
     private GameObject[] objectsToCollect_text;
 
     public GameObject playerInventoryCanvas;
@@ -33,21 +31,20 @@ public class PlayerInventoryDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void IntializeInventoryDisplay(){
     
-
+        // Attach Canvas child object to variable
         if (this.transform.childCount > 0) {
             playerInventoryCanvas = this.transform.GetComponentInChildren<Canvas>().gameObject;
         } else {
             Debug.Log("Warning! PlayerInventoryDisplay.cs\n\tGameObject" + this.name + "has no Canvas attached");
         }
 
-        // Get rect transform of child Player_Inventory_Header object
+        // Get rect transform of child Player_Inventory_Header object, set variable
         Transform t = playerInventoryCanvas.transform.Find("Player_Inventory_Header");
-
         if (t.GetComponent<RectTransform>() != null)
         {
             headerReferenceRect = t.GetComponent<RectTransform>();
@@ -56,7 +53,14 @@ public class PlayerInventoryDisplay : MonoBehaviour
             Debug.Log ("Error! PlayerInventoryDisplay.cs\n\tInventory Display Header not found in GameObject:" + this.name);
         }
 
-        Debug.Log("Objects to Collect: " + objectsToCollect.Count);
+
+        Debug.Log(this.transform.name + " has " + objectsToCollect.Count + "objects to Collect");
+        foreach (GameObject inventoryObject in objectsToCollect)
+        {
+            inventoryObject.GetComponent<SpawnableObject>().attachToInventoryOwner(this);
+        }
+
+        // Create text mesh objects for each and attach to Canvas
         objectsToCollect_text = new GameObject[objectsToCollect.Count];
         for (int i = 0; i < objectsToCollect.Count; i++)
         {
@@ -67,35 +71,34 @@ public class PlayerInventoryDisplay : MonoBehaviour
         SetInventoryTextMesh();
     }
 
+    // This is called from SpawnableObject.cs to update when it's collected.
+    public void updateUIOnCollection(){
+        setInventoryStyles();
+    }
+
     void SetInventoryTextMesh(){
         float headerYPos = headerReferenceRect.rect.position.y;
         Debug.Log(headerYPos);
 
         for (int i = 0; i < objectsToCollect_text.Length; i++)
         { 
-            // objectsToCollect_text[i].text = "Object #" + i.ToString();
-            // objectsToCollect_text[i].gameObject.GetComponent<RectTransform>().
-            //     anchoredPosition.Set(headerReferenceRect.anchoredPosition.x + inventoryText_Xpos_Offset,
-            //                          headerReferenceRect.anchoredPosition.y + inventoryText_Ypos_Offset);
             objectsToCollect_text[i].GetComponent<TextMeshProUGUI>().text = "Object #" + i.ToString();
             objectsToCollect_text[i].GetComponent<RectTransform>().
-                SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 100, 400);
+                SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, inventoryText_Xpos_Offset, 400);
             objectsToCollect_text[i].GetComponent<RectTransform>().
                 SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 
-                    (playerInventoryCanvas.GetComponent<RectTransform>().rect.height / 2) + 30 + (i * 60), 50);
-
-                // position.Set(headerReferenceRect.anchoredPosition.x + inventoryText_Xpos_Offset,
-                //                      headerReferenceRect.anchoredPosition.y + inventoryText_Ypos_Offset);
+                    (playerInventoryCanvas.GetComponent<RectTransform>().rect.height / 2) + 30 - (i * inventoryText_Ypos_Offset), 50);
             
         }
     }
 
     void setInventoryStyles(){
-
+        for (int i = 0; i < objectsToCollect.Count; i++)
+        {
+            if (objectsToCollect[i].GetComponent<SpawnableObject>().isCollected == true)
+            {
+                objectsToCollect_text[i].GetComponent<TextMeshProUGUI>().fontStyle = FontStyles.Strikethrough;
+            }
+        }
     }
-
-    void updateInventoryDisplay(){
-         
-    }
-
 }
