@@ -7,14 +7,14 @@ public class InventoryManager : MonoBehaviour
 
     public GameObject[] collectableObjects;
 
-    public PlayerInventory[] players;
+    public PlayerInventoryDisplay[] playerInventories;
 
     private int playerIdx = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        players = GameObject.FindObjectsOfType<PlayerInventory>();
+        playerInventories = GameObject.FindObjectsOfType<PlayerInventoryDisplay>();
         AssignObjectsToPlayers();
     }
 
@@ -32,8 +32,8 @@ public class InventoryManager : MonoBehaviour
     public void AssignObjectsToPlayers()
     {
         for(int i = 0; i < collectableObjects.Length; i++){
-            players[playerIdx++].objectsToCollect.Add(collectableObjects[i]);
-            playerIdx %= players.Length;
+            playerInventories[playerIdx++].objectsToCollect.Add(collectableObjects[i]);
+            playerIdx %= playerInventories.Length;
         }
     } 
 }

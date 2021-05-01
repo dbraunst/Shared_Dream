@@ -43,6 +43,7 @@ public class ObjectSpawner : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U)){
             inventoryManager.AddSpawnedObjectList(spawnedObjects);
             inventoryManager.AssignObjectsToPlayers();
+            inventoryManager.playerInventories[0].IntializeInventoryDisplay();
         }
     }
 
