@@ -29,6 +29,10 @@ public class ObjectSpawner : MonoBehaviour
         inventoryManager = GameObject.FindObjectOfType<InventoryManager>();
 
         SpawnObjects();
+
+        inventoryManager.AddSpawnedObjectList(spawnedObjects);
+        inventoryManager.AssignObjectsToPlayers();
+        inventoryManager.playerInventories[0].IntializeInventoryDisplay();
     }
  
     // Update is called once per frame
