@@ -26,14 +26,10 @@ public class CameraSync : MonoBehaviour
         cam3Offset_z = offsetDistance * 2.0f;
         cam4Offset_z = offsetDistance * 3.0f;
 
-        Debug.Log(cam2Offset_z + " " +  cam3Offset_z + " " + cam4Offset_z);
-
 
         cam2Offset = new Vector3(0, 0, cam2Offset_z);
         cam3Offset = new Vector3(0, 0, cam3Offset_z);
         cam4Offset = new Vector3(0, 0, cam4Offset_z);
-
-        Debug.Log(cam2Offset + " " +  cam3Offset + " " + cam4Offset);
     }
 
     // Update is called once per frame
@@ -42,8 +38,6 @@ public class CameraSync : MonoBehaviour
         updateCameraPos(camera2, cam2Offset);
         updateCameraPos(camera3, cam3Offset);
         updateCameraPos(camera4, cam4Offset);
-
-        Debug.Log(offsetDistance);
     }
 
     void updateCameraPos(Camera _camera, Vector3 _offset) {
