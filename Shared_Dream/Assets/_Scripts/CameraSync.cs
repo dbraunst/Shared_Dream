@@ -30,10 +30,16 @@ public class CameraSync : MonoBehaviour
         cam2Offset = new Vector3(0, 0, cam2Offset_z);
         cam3Offset = new Vector3(0, 0, cam3Offset_z);
         cam4Offset = new Vector3(0, 0, cam4Offset_z);
+
+        Application.onBeforeRender += callOnBeforeRender;
     }
 
     // Update is called once per frame
-    void Update()
+    // void Update()
+    // {
+    // }
+
+    private void callOnBeforeRender()
     {
         updateCameraPos(camera2, cam2Offset);
         updateCameraPos(camera3, cam3Offset);

@@ -64,7 +64,8 @@
 
                 // VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
                 // output.vertex = vertexInput.positionCS;
-                output.vertex = TransformObjectToHClip(input.positionOS.xyz);
+                // output.vertex = TransformObjectToHClip(input.positionOS.xyz);
+                output.vertex = TransformWViewToHClip(input.positionOS.xyz);
                 output.uv = TRANSFORM_TEX(input.uv, _BaseMap);
 
                 return output;
