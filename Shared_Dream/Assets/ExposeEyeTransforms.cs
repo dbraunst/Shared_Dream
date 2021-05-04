@@ -21,7 +21,10 @@ public class ExposeEyeTransforms : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        eyeTexDesc.width = XRSettings.eyeTextureWidth;
+        eyeTexDesc.height = XRSettings.eyeTextureHeight;
         eyeTexDesc = XRSettings.eyeTextureDesc;
+        
         StartCoroutine(wait());
     }
 
@@ -38,10 +41,14 @@ public class ExposeEyeTransforms : MonoBehaviour
     void printDebugInfo(){
         
         Debug.Log("EyeTextHeight: " + XRSettings.eyeTextureHeight);
+        Debug.Log("EyeTextWidth: " + XRSettings.eyeTextureWidth);
+        // Debug.Log("Graphics Format:" + XRSettings.)
+        
+        // Tex2D and Tex2Darray
+        Debug.Log("EyeTexDim: " + eyeTexDesc.dimension + XRSettings.deviceEyeTextureDimension);
     }
 
     IEnumerator wait(){
-        Debug.Log("called corountine");
         yield return new WaitForSeconds(2.0f);
         printDebugInfo();
 

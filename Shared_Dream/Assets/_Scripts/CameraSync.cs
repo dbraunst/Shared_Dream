@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteAlways]
+
 public class CameraSync : MonoBehaviour
 {
     // Start is called before the first frame update

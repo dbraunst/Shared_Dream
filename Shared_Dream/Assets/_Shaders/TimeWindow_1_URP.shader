@@ -17,11 +17,11 @@
         Pass
         {
             Name "Main Camera"
-            // Stencil {
-            //     Ref 2
-            //     Comp Equal
-            //     Pass replace
-            // }
+            Stencil {
+                Ref 2
+                Comp Equal
+                Pass replace
+            }
 
             HLSLPROGRAM
 
@@ -65,8 +65,14 @@
                 // VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
                 // output.vertex = vertexInput.positionCS;
                 // output.vertex = TransformObjectToHClip(input.positionOS.xyz);
-                output.vertex = TransformWViewToHClip(input.positionOS.xyz);
-                output.uv = TRANSFORM_TEX(input.uv, _BaseMap);
+                
+                // output.vertex = TransformWViewToHClip(input.positionOS.xyz);
+                output.vertex = mul(UNITY_MATRIX_MVP, input.positionOS);
+                output.vertex /= output.vertex.w;
+                
+                output.uv[0] = (output.vertex[0]+1)/2;
+                output.uv[1] = (1- output.vertex[1])/2;
+                // output.uv = TRANSFORM_TEX(input.uv, _BaseMap);
 
                 return output;
             }
