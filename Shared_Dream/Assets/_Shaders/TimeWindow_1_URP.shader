@@ -2,7 +2,7 @@
 {
     Properties
     {
-        [MainTexture] _BaseMap("Camera Texture 0", 2D) = "white"
+        [MainTexture] _BaseMap("Camera Texture 0", 2DArray) = "white" {}
         // _CameraTex0 ("Camera Texture 0", 2D) = "gray" {}
         // _CameraTex1 ("Camera Texture 1", 2D) = "white" {}
         // _CameraTex2 ("Camera Texture 2", 2D) = "white" {}
@@ -28,6 +28,8 @@
             #pragma vertex vert
             #pragma fragment frag
 
+            #pragma target 3.5
+
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
             struct Attributes
@@ -47,7 +49,8 @@
                 UNITY_VERTEX_OUTPUT_STEREO
             };
 
-            Texture2D _BaseMap;
+            // Texture2D _BaseMap;
+            TEXTURE2D_ARRAY(_BaseMap);
             SAMPLER(sampler_BaseMap);
 
             CBUFFER_START(UnityPerMaterial)
@@ -89,14 +92,12 @@
                 // AlphaDiscard(alpha, _Cutoff);
 
                 // half4 customColor = half4(0, 0.5, 1, 1);
-                half4 color = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv);
-
+                half4 color = SAMPLE_TEXTURE2D_ARRAY(_BaseMap, sampler_BaseMap, input.uv, 1);
 
                 return color;
             }
             ENDHLSL
         }
-
         // Layer 6, Camera 1
         // Pass
         // {

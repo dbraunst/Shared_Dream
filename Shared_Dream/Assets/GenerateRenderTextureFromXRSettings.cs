@@ -16,28 +16,49 @@ public class GenerateRenderTextureFromXRSettings : MonoBehaviour
     void Start()
     {
         // settings = this.gameObject.GetComponent<ExposeEyeTransforms>();
-        // desc = new RenderTextureDescriptor(XRSettings.eyeTextureHeight, XRSettings.eyeTextureHeight, 
-        //     UnityEngine.Experimental.Rendering.GraphicsFormat.R8G8B8A8_UNorm, 24);
+        StartCoroutine(wait());
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // Graphics.SetRenderTarget(generatedRenderTexture, 0, CubemapFace.Unknown, 0);
+        // camera2.Render();
+        // Graphics.SetRenderTarget(generatedRenderTexture, 0, CubemapFace.Unknown, 1);
+        // camera2.Render();
+    }
+    void DrawTextures(){
         UnityEngine.XR.XRSettings.eyeTextureResolutionScale = 2.0f;
         
         RenderTextureDescriptor d = XRSettings.eyeTextureDesc;
         
         Debug.Log("xr settings: " + XRSettings.eyeTextureDesc.height + " " + XRSettings.eyeTextureDesc.width + " "
                         + XRSettings.renderViewportScale + " " + XRSettings.eyeTextureHeight + " " + XRSettings.eyeTextureWidth);
-        d.width  = (int)(XRSettings.eyeTextureWidth / 2.0f);
-        d.height = (int)(XRSettings.eyeTextureHeight * 0.9f);
+        d.width  = (int)(XRSettings.eyeTextureWidth);
+        d.height = (int)(XRSettings.eyeTextureHeight);
+        // d.width = Screen.width;
+        // d.height = Screen.height;
+        d.vrUsage = VRTextureUsage.OneEye;
+
+        Debug.Log("H/W: " + d.height + d.width);
 
         generatedRenderTexture = new RenderTexture(d);
+        generatedRenderTexture.dimension = UnityEngine.Rendering.TextureDimension.Tex2D;
 
         Debug.Log("desc settings: " + d.height + d.width);
         camera2.targetTexture = generatedRenderTexture;
+
+//         Graphics.SetRenderTarget(generatedRenderTexture, 0, CubemapFace.Unknown, 0);
+//         camera2.Render();
+// Graphics.SetRenderTarget(generatedRenderTexture, 0, CubemapFace.Unknown, 1);
+//         camera2.Render();
+
         Debug.Log("Generated Tex");
         timeWindow1URP.SetTexture("_BaseMap", generatedRenderTexture);
     }
+    IEnumerator wait(){
+        yield return new WaitForSeconds(2.0f);
+        DrawTextures();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

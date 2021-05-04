@@ -78,7 +78,7 @@ public class PlayerInventoryDisplay : MonoBehaviour
 
     void SetInventoryTextMesh(){
         float headerYPos = headerReferenceRect.rect.position.y;
-        Debug.Log(headerYPos);
+        // Debug.Log(headerYPos);
 
         for (int i = 0; i < objectsToCollect_text.Length; i++)
         { 
