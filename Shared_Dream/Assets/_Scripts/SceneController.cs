@@ -5,10 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Awake()
+    //
+    public int sceneToLoad;
+
+    public LoadSceneMode loadSceneMode;
+    
+    //Awake is awake
+    void Start()
     {
         // Adds in the second scene at the same time 
-        SceneManager.LoadScene(1, LoadSceneMode.Additive);
+        if (loadSceneMode == LoadSceneMode.Additive)
+        {
+            SceneManager.LoadScene(sceneToLoad, loadSceneMode);
+        }
+    }
+
+    public void LoadNextSceneSingle()
+    {
+        SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
     }
 }
