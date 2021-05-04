@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set;}
-    public static int MAX_OBJECTS_PER_PLAYER = 8;
+    public static int MAX_OBJECTS_PER_PLAYER = 4;
     public static int NUM_PLAYERS = 1;
 
     public static int NUM_OBJECTS_PER_PLAYER = 3;
@@ -20,6 +20,6 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
 
-        
+
     }
 }

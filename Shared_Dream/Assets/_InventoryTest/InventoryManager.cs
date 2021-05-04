@@ -30,6 +30,7 @@ public class InventoryManager : MonoBehaviour
 
     // Called from Object Spawner Second. "Randomly" assigns objects to players by 
     // iterating through until it's complete
+    // TODO: move the majority of the function body into PlayerInventoryDisplay. Don't modify 
     public void AssignObjectsToPlayers()
     {
         for(int i = 0; i < collectableObjects.Length; i++){

@@ -7,6 +7,7 @@ using System;
 public class PlayerInventoryDisplay : MonoBehaviour
 {
 
+    //This is set from InventoryManager in AssignObjectsToPlayers()
     public List<GameObject> objectsToCollect;
 
     public int inventoryText_Xpos_Offset;
@@ -14,7 +15,7 @@ public class PlayerInventoryDisplay : MonoBehaviour
 
     public GameObject inventoryItemText_Prefab;
 
-    private GameObject[] objectsToCollect_text;
+    private GameObject[] objectsToCollect_textMesh;
 
     public GameObject playerInventoryCanvas;
 
@@ -24,12 +25,6 @@ public class PlayerInventoryDisplay : MonoBehaviour
     void Start()
     {
         IntializeInventoryDisplay();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void IntializeInventoryDisplay(){
@@ -70,26 +65,25 @@ public class PlayerInventoryDisplay : MonoBehaviour
 
         // Get our header position in screen space
         float headerYPos = headerReferenceRect.rect.position.y;
-        // Debug.Log(headerYPos);
         
         // Create text mesh objects for each object in 'objectsToCollect' and attach to Canvas
-        objectsToCollect_text = new GameObject[objectsToCollect.Count];
+        objectsToCollect_textMesh = new GameObject[objectsToCollect.Count];
         for (int i = 0; i < objectsToCollect.Count; i++)
         {
-            objectsToCollect_text[i] = Instantiate(inventoryItemText_Prefab,new Vector3(0, 0, 0), Quaternion.identity, 
-                playerInventoryCanvas.transform);
+            // Instantiate using canvas as base transform
+            objectsToCollect_textMesh[i] = Instantiate(inventoryItemText_Prefab, playerInventoryCanvas.transform.position, 
+                Quaternion.identity, playerInventoryCanvas.transform);
         }
 
-        for (int i = 0; i < objectsToCollect_text.Length; i++)
-        { 
-            // Spawnable object sets name on Awake() it shoudl set as soon as it's instantiated
-            objectsToCollect_text[i].GetComponent<TextMeshProUGUI>().text = "Object #" + i.ToString();
-            objectsToCollect_text[i].GetComponent<RectTransform>().
-                SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, inventoryText_Xpos_Offset, 400);
-            objectsToCollect_text[i].GetComponent<RectTransform>().
-                SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 
-                    (playerInventoryCanvas.GetComponent<RectTransform>().rect.height / 2) + 30 - (i * inventoryText_Ypos_Offset), 50);
-            
+        for (int i = 0; i < objectsToCollect_textMesh.Length; i++)
+        {
+            // Add a lil hyphen to the beginning of the object name so it looks like a list
+            objectsToCollect_textMesh[i].GetComponent<TextMeshProUGUI>().text = "- " + 
+                objectsToCollect[i].GetComponent<SpawnableObject>()._name;
+
+            objectsToCollect_textMesh[i].GetComponent<RectTransform>().anchorMin = new Vector2(0.15f, (0.60f - (0.15f * i)));
+            objectsToCollect_textMesh[i].GetComponent<RectTransform>().anchorMax = new Vector2(0.85f, (0.75f - (0.15f * i)));
+            objectsToCollect_textMesh[i].GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
         }
     }
 
@@ -98,7 +92,7 @@ public class PlayerInventoryDisplay : MonoBehaviour
         {
             if (objectsToCollect[i].GetComponent<SpawnableObject>().isCollected == true)
             {
-                objectsToCollect_text[i].GetComponent<TextMeshProUGUI>().fontStyle = FontStyles.Strikethrough;
+                objectsToCollect_textMesh[i].GetComponent<TextMeshProUGUI>().fontStyle = FontStyles.Strikethrough;
             }
         }
     }

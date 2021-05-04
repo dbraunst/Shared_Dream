@@ -11,11 +11,6 @@ public class SpawnableObject : MonoBehaviour
     public PlayerInventoryDisplay inventory_owner;
 
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-        _name = this.gameObject.name;
-    }
 
     //Called upon spawn from PlayerInventoryDisplay.cs
     public void attachToInventoryOwner(PlayerInventoryDisplay owner)
@@ -33,6 +28,7 @@ public class SpawnableObject : MonoBehaviour
             Debug.Log("Raycast from SpawnableObject.cs");
 
             if(Physics.Raycast(ray, out hit)) {
+                Debug.Log("Hit! " + hit.transform.name + "; " + this.transform.name);
                 if (hit.transform.name == this.transform.name){
                     Debug.Log("This Object, " + this.transform.name + " was collected!");
 

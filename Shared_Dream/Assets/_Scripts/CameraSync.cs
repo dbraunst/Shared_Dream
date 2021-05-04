@@ -34,21 +34,27 @@ public class CameraSync : MonoBehaviour
         Application.onBeforeRender += callOnBeforeRender;
     }
 
-    // Update is called once per frame
-    // void Update()
-    // {
-    // }
-
     private void callOnBeforeRender()
     {
-        updateCameraPos(camera2, cam2Offset);
-        updateCameraPos(camera3, cam3Offset);
-        updateCameraPos(camera4, cam4Offset);
+        if (this.gameObject != null)
+        {
+            if (camera2 != null)
+                updateCameraPos(camera2, cam2Offset);
+
+            if (camera3 != null)
+                updateCameraPos(camera3, cam3Offset);
+
+            if (camera4 != null)    
+                updateCameraPos(camera4, cam4Offset);
+        }
     }
 
     void updateCameraPos(Camera _camera, Vector3 _offset) {
-        _camera.transform.localPosition = this.transform.localPosition + _offset;
-        _camera.transform.rotation = this.transform.rotation;
+        if (_camera != null)
+        {
+            _camera.transform.localPosition = this.transform.localPosition + _offset;
+            _camera.transform.rotation = this.transform.rotation;
+        }
     }
 
 }
