@@ -40,8 +40,6 @@ public class MainTexManager : MonoBehaviour
         _depthHackBuf = new CommandBuffer();
         _depthHackBuf.ClearRenderTarget(true, true, Color.black, 0);
         _depthHackBuf.name = "Fancy Depth Magic";
-        // _depthHackBuf.DrawRenderer(_depthHackQuad, new Material(Shader.Find("Hidden/DepthHack")));
-
         cam1.texture = cam0_rt;
 
     }
@@ -69,11 +67,7 @@ public class MainTexManager : MonoBehaviour
 
         if (Physics.Raycast(camera2.ScreenPointToRay(Input.mousePosition), out hit_2))
         {
-            // UnityEngine.Debug.Log("Raycast hit: " + hit_2.transform.name);
-            // if (hit_2.transform.gameObject.layer == 12)
-            // {
             UnityEngine.Debug.Log("Cam 2 Hit!" + hit_2.transform.name);
-            // }
         }   
         UnityEngine.Debug.Log("Younk");
         Ray mainCamRay = mainCam.ScreenPointToRay(Input.mousePosition);
@@ -83,19 +77,5 @@ public class MainTexManager : MonoBehaviour
         Ray cam1ray = camera1.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(cam1ray.origin, cam1ray.direction * 50.0f, 
         Color.red, 0.5f);
-
-        // Renderer rend = hit_0.transform.GetComponent<Renderer>();
-        // MeshCollider meshCollider = hit_0.collider as MeshCollider;
-
-
-        // UnityEngine.Debug.Log(rend.material.GetColor("white"));
-        // // rend.material.shader.maximumLOD
-
-        // if (rend == null || rend.sharedMaterial == null || rend.sharedMaterial.mainTexture == null || meshCollider == null)
-        //     return;
-
-        // Texture2D tex = rend.material.mainTexture as Texture2D;
-        // Vector2 pixelUV = hit_0.textureCoord;
-
     }
 }
