@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ObjectSpawn
+  - SceneManager
+  - CollectibleObj
+  - PlayerInventory
   layers:
   - Default
   - TransparentFX
@@ -11,10 +15,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - XR_Inteact_UI
   - Pickup
   - Handle
-  - 
+  - Interact_visuals
   - Stencil_Background
   - Stencil_Layer1
   - Time_Window

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6773221481609543604}
   - component: {fileID: 6773221481609543606}
   - component: {fileID: 6773221481609543605}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4818,7 +4818,7 @@ GameObject:
   - component: {fileID: 6773221481775546503}
   - component: {fileID: 6773221481775546502}
   - component: {fileID: 6773221481775546501}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4915,7 +4915,7 @@ GameObject:
   - component: {fileID: 6773221482653966214}
   - component: {fileID: 6773221482653966213}
   - component: {fileID: 6773221482653966212}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: TeleportRecticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

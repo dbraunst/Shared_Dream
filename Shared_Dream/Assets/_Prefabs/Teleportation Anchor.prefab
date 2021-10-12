@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6504236065083641189}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Anchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 6504236066475235680}
   - component: {fileID: 6504236066475235683}
   - component: {fileID: 6504236066475235682}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Teleportation Anchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

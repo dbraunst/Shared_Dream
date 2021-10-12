@@ -2,7 +2,7 @@
 {
     Properties
     {
-        [MainTexture] _BaseMap("Camera Texture 0", 2D) = "white"
+        [MainTexture] _BaseMap("Camera Texture 0", 2DArray) = "white" {}
         // _CameraTex0 ("Camera Texture 0", 2D) = "gray" {}
         // _CameraTex1 ("Camera Texture 1", 2D) = "white" {}
         // _CameraTex2 ("Camera Texture 2", 2D) = "white" {}
@@ -17,16 +17,18 @@
         Pass
         {
             Name "Main Camera"
-            // Stencil {
-            //     Ref 2
-            //     Comp Equal
-            //     Pass replace
-            // }
+            Stencil {
+                Ref 2
+                Comp Equal
+                Pass replace
+            }
 
             HLSLPROGRAM
 
             #pragma vertex vert
             #pragma fragment frag
+
+            #pragma target 3.5
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
@@ -47,7 +49,8 @@
                 UNITY_VERTEX_OUTPUT_STEREO
             };
 
-            Texture2D _BaseMap;
+            // Texture2D _BaseMap;
+            TEXTURE2D_ARRAY(_BaseMap);
             SAMPLER(sampler_BaseMap);
 
             CBUFFER_START(UnityPerMaterial)
@@ -64,8 +67,15 @@
 
                 // VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
                 // output.vertex = vertexInput.positionCS;
-                output.vertex = TransformObjectToHClip(input.positionOS.xyz);
-                output.uv = TRANSFORM_TEX(input.uv, _BaseMap);
+                // output.vertex = TransformObjectToHClip(input.positionOS.xyz);
+                
+                // output.vertex = TransformWViewToHClip(input.positionOS.xyz);
+                output.vertex = mul(UNITY_MATRIX_MVP, input.positionOS);
+                output.vertex /= output.vertex.w;
+                
+                output.uv[0] = (output.vertex[0]+1)/2;
+                output.uv[1] = (1- output.vertex[1])/2;
+                // output.uv = TRANSFORM_TEX(input.uv, _BaseMap);
 
                 return output;
             }
@@ -82,14 +92,12 @@
                 // AlphaDiscard(alpha, _Cutoff);
 
                 // half4 customColor = half4(0, 0.5, 1, 1);
-                half4 color = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv);
-
+                half4 color = SAMPLE_TEXTURE2D_ARRAY(_BaseMap, sampler_BaseMap, input.uv, 1);
 
                 return color;
             }
             ENDHLSL
         }
-
         // Layer 6, Camera 1
         // Pass
         // {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteAlways]
+
 public class CameraSync : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -30,19 +30,31 @@ public class CameraSync : MonoBehaviour
         cam2Offset = new Vector3(0, 0, cam2Offset_z);
         cam3Offset = new Vector3(0, 0, cam3Offset_z);
         cam4Offset = new Vector3(0, 0, cam4Offset_z);
+
+        Application.onBeforeRender += callOnBeforeRender;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void callOnBeforeRender()
     {
-        updateCameraPos(camera2, cam2Offset);
-        updateCameraPos(camera3, cam3Offset);
-        updateCameraPos(camera4, cam4Offset);
+        if (this.gameObject != null)
+        {
+            if (camera2 != null)
+                updateCameraPos(camera2, cam2Offset);
+
+            if (camera3 != null)
+                updateCameraPos(camera3, cam3Offset);
+
+            if (camera4 != null)    
+                updateCameraPos(camera4, cam4Offset);
+        }
     }
 
     void updateCameraPos(Camera _camera, Vector3 _offset) {
-        _camera.transform.localPosition = this.transform.localPosition + _offset;
-        _camera.transform.rotation = this.transform.rotation;
+        if (_camera != null)
+        {
+            _camera.transform.localPosition = this.transform.localPosition + _offset;
+            _camera.transform.rotation = this.transform.rotation;
+        }
     }
 
 }

@@ -23,7 +23,7 @@ MonoBehaviour:
         m_Bits: 4096
       PassNames: []
     overrideMaterial: {fileID: 2100000, guid: 419cb64186cc0c74b9c3f73a065bd3c1, type: 2}
-    overrideMaterialPassIndex: 0
+    overrideMaterialPassIndex: 1
     overrideDepthState: 0
     depthCompareFunction: 4
     enableWrite: 1
@@ -35,7 +35,7 @@ MonoBehaviour:
       failOperation: 2
       zFailOperation: 0
     cameraSettings:
-      overrideCamera: 1
+      overrideCamera: 0
       restoreCamera: 1
       offset: {x: 0, y: 0, z: 0, w: 0}
       cameraFieldOfView: 60
@@ -113,11 +113,11 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_DefaultStencilState:
     overrideStencilState: 0
-    stencilReference: 0
-    stencilCompareFunction: 8
+    stencilReference: 1
+    stencilCompareFunction: 5
     passOperation: 2
-    failOperation: 2
-    zFailOperation: 2
+    failOperation: 0
+    zFailOperation: 1
   m_ShadowTransparentReceive: 1
   m_RenderingMode: 0
   m_AccurateGbufferNormals: 0

@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class ObjectSpawner : MonoBehaviour
 {
     // Prefabs for the spawner to select from
-    public GameObject[] spawnableObjectPrefabs;
+    public GameObject[] collectibleObjectPrefabs;
 
     // Temporary reference to prefab copies, set in SpawnObjects
-    // 
     public GameObject[] spawnedObjects; 
 
-    // Array of 
+    // Number of Players in game 
+    public int numPlayers;
+
+    // Array of GO's with spawnpoints.
+    // TODO: Refactor to transforms
     private GameObject[] spawnPoints;
 
     private int numObjectsToSpawn;
@@ -23,16 +28,22 @@ public class ObjectSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // get out possible spawn points
         // Queries the scene to grab all objects tagged "ObjectSpawn"
         spawnPoints = GameObject.FindGameObjectsWithTag("ObjectSpawn");
-        numObjectsToSpawn = spawnPoints.Length;
+
+        // how many players? -> how many objects
+        // get number of players
+        numPlayers = GameManager.NUM_PLAYERS;
+        numObjectsToSpawn = numPlayers * GameManager.NUM_OBJECTS_PER_PLAYER;
+
+        // assign ref to inventory Manager
         inventoryManager = GameObject.FindObjectOfType<InventoryManager>();
 
         SpawnObjects();
 
-        inventoryManager.AddSpawnedObjectList(spawnedObjects);
-        inventoryManager.AssignObjectsToPlayers();
-        inventoryManager.playerInventories[0].IntializeInventoryDisplay();
+        // Moved inside SpawnObjects() to ensure proper script flow
+        // IntializeInventoryManager();
     }
  
     // Update is called once per frame
@@ -47,14 +58,14 @@ public class ObjectSpawner : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.U)){
-            inventoryManager.AddSpawnedObjectList(spawnedObjects);
+            inventoryManager.AddSpawnedObjectArray(spawnedObjects);
             inventoryManager.AssignObjectsToPlayers();
             inventoryManager.playerInventories[0].IntializeInventoryDisplay();
         }
     }
 
     // Randomly Spawns Objects from the "Spawnable Object Prefabs" array
-    // based on the number of spawn points in the scene. 
+    // based on the number objects to spawn 
     // Requires more spawn points than spawnable objects.
     void SpawnObjects() {
         // Clear Existing Spawned Objects
@@ -71,6 +82,8 @@ public class ObjectSpawner : MonoBehaviour
             spawnedObjects[i] = GameObject.Instantiate(prefabsToSpawn[i], spawnPoints[i].transform.position,
                 Quaternion.identity);
         }
+
+        IntializeInventoryManager();
     }
 
     // Shuffles the order of Spawn Points around to randomize spawn location
@@ -92,13 +105,13 @@ public class ObjectSpawner : MonoBehaviour
         int _numObjectsToSpawn = numObjectsToSpawn;
 
         // probability-based random selection from array. 
-        for (int numLeft = spawnableObjectPrefabs.Length; numLeft > 0; numLeft--)
+        for (int numLeft = collectibleObjectPrefabs.Length; numLeft > 0; numLeft--)
         {
             float prob = (float)_numObjectsToSpawn/(float)numLeft;
 
             if (Random.value <= prob) {
                 _numObjectsToSpawn--;
-                result[_numObjectsToSpawn] = spawnableObjectPrefabs[numLeft - 1];
+                result[_numObjectsToSpawn] = collectibleObjectPrefabs[numLeft - 1];
 
                 if (_numObjectsToSpawn == 0) {
                     break;
@@ -108,5 +121,9 @@ public class ObjectSpawner : MonoBehaviour
         return result;
     }
 
-    
+    void IntializeInventoryManager(){
+        inventoryManager.AddSpawnedObjectArray(spawnedObjects);
+        inventoryManager.AssignObjectsToPlayers();
+        inventoryManager.InitializePlayerInventories();
+    }
 }
