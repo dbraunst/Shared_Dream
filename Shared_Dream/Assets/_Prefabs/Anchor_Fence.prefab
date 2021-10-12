@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 840361797851889054}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Anchor_Fence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 7137259292032268135}
   - component: {fileID: 5965096244646805478}
   - component: {fileID: 2280756491768907821}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Am_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 5784089410127766413}
   - component: {fileID: 5784089410127766412}
   - component: {fileID: 5784089410127766415}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Am
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 3774398339884564134}
   - component: {fileID: 2335032942098766015}
   - component: {fileID: 7107933013789483030}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Am_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 5943407666534279232}
   - component: {fileID: 8908776459051518468}
   - component: {fileID: 3070894820028823146}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Am_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2545255893739316614}
   - component: {fileID: 2545255893739316615}
   - component: {fileID: 2545255893739316613}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Camera_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 2545255894164659396}
   - component: {fileID: 2545255894164659397}
   - component: {fileID: 2545255894164659393}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightHand Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 2545255894176966615}
   - component: {fileID: 2545255894176966616}
   - component: {fileID: 2545255894176966617}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -695,7 +695,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2545255894444278589}
   - component: {fileID: 2545255894444278588}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Camera Offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -756,7 +756,7 @@ GameObject:
   - component: {fileID: 2545255894578985501}
   - component: {fileID: 2545255894578985500}
   - component: {fileID: 2545255894578985499}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -972,7 +972,7 @@ GameObject:
   - component: {fileID: 2545255894799147140}
   - component: {fileID: 2545255894799147141}
   - component: {fileID: 2545255894799147142}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: PlayerInventoryCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1111,7 +1111,7 @@ GameObject:
   - component: {fileID: 2545255894910343023}
   - component: {fileID: 2545255894910343024}
   - component: {fileID: 2545255894910343021}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player XR Rig
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1244,7 +1244,7 @@ GameObject:
   - component: {fileID: 2545255895030967543}
   - component: {fileID: 2545255895030967544}
   - component: {fileID: 2545255895030967542}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Camera_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1351,7 +1351,7 @@ GameObject:
   - component: {fileID: 2545255895089902323}
   - component: {fileID: 2545255895089902324}
   - component: {fileID: 2545255895089902322}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Camera_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1458,7 +1458,7 @@ GameObject:
   - component: {fileID: 2545255895355436901}
   - component: {fileID: 2545255895355436902}
   - component: {fileID: 2545255895355436903}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Player_Inventory_Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1595,7 +1595,7 @@ GameObject:
   - component: {fileID: 2545255895679878626}
   - component: {fileID: 2545255895679878627}
   - component: {fileID: 2545255895679878628}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftHand Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2127,6 +2127,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Hand Presence
       objectReference: {fileID: 0}
+    - target: {fileID: 3621981467535291326, guid: 6c2509c76b281144cb0099fc45f17a09,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c2509c76b281144cb0099fc45f17a09, type: 3}
 --- !u!4 &1229847960713481250 stripped
@@ -2201,6 +2206,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Hand Presence
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621981467535291326, guid: ddc38db09f9124241b4b4e9b2b9831eb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddc38db09f9124241b4b4e9b2b9831eb, type: 3}
@@ -2301,12 +2311,12 @@ PrefabInstance:
     - target: {fileID: 6773221481609543603, guid: 76843d5528d367d4aac481cfb0b11fc2,
         type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6773221481775546499, guid: 76843d5528d367d4aac481cfb0b11fc2,
         type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6773221482653966211, guid: 76843d5528d367d4aac481cfb0b11fc2,
         type: 3}
@@ -2316,7 +2326,7 @@ PrefabInstance:
     - target: {fileID: 6773221482653966211, guid: 76843d5528d367d4aac481cfb0b11fc2,
         type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6773221482653966215, guid: 76843d5528d367d4aac481cfb0b11fc2,
         type: 3}
